@@ -1,5 +1,6 @@
 #include <locale.h>
 #include <stdio.h>
+#include <math.h>
 
 /* Trabalho N1 - Desenvolver um programa que resolva equacoes de primeiro e segundo grau.
 Requisitos funcionais:
@@ -42,7 +43,7 @@ void eqPrimeiroGrau() {
 	printf("Digite o valor de b: \n");
 	scanf("%f", &b);                 // armazena o valor de b na variavel b
 
-	printf("A Equacao de 1o Grau montada C): %.2f x + %.2f = 0 \n", a, b); // mostra a conta montada pelo user
+	printf("A Equacao de 1o Grau montada é: %.2f x + %.2f = 0 \n", a, b); // mostra a conta montada pelo user
 
 	// primeiro passo da conta = verificar se o problema tem solucao.
 	// como? se a = 0 e b = 0, temos solucoes INFINITAS, pois qualquer numero de x serve para a equaC'C#o
@@ -55,7 +56,7 @@ void eqPrimeiroGrau() {
 			printf("O problema tem infinitas solucoes, pois qualquer valor para X servira!.\n");
 		} else {
 			printf("O problema nao tem solucao.\n");
-			printf("Motivo: Se a = 0, a equacao se reduz a %.2f = 0, o que C) impossivel.\n", b);
+			printf("Motivo: Se a = 0, a equacao se reduz a %.2f = 0, o que é impossivel.\n", b);
 		}
 	} else { // se ha solucao, o programa da continuidade com a resolucao
 		printf("A formula usada sera: ax + b = 0\n");
@@ -64,19 +65,88 @@ void eqPrimeiroGrau() {
 		printf("Passo 3: Dividir b por a -> x = -b/a\n");
 
 		x = -b / a;
-		printf("O valor de x C)): %.2f.\n", x);
+		printf("O valor de x é: %.2f.\n", x);
 		printf("Expressao final: %.2f*%.2f + %.2f = 0.\n", a, x, b);
 	}
 }
 
 void sobrePrograma() {
-	printf("Trabalho da N1 da matC)ria de Algoritmos, do curso de Sistemas da InformaC'C#o.\n");
-	printf("CC3digo desenvolvido por Victor da Silva GonC'alves - UNIAVAN.");
+    printf("Trabalho da N1 da matéria de Algoritmos, do curso de Sistemas da Informação.\n");
+    printf("Código desenvolvido por Victor da Silva Gonçalves - UNIAVAN.");
 }
 
 void eqSegundoGrau() {
-	printf("olaa");
+    // formula = ax^2 + bx + c = 0
+    float a, b, c, delta, x1, x2; // declara os dados que usaremos
+    
+    printf("Digite o valor de a:\n"); 
+    scanf("%f", &a);                    // salva o valor de a na variavel a 
+    printf("Digite o valor de b:\n");
+    scanf("%f", &b);                    // salva o valor de b na variavel b
+    printf("Digite o valor de c:\n");
+    scanf("%f", &c);                    // salva o valor de c na variavel c
+    
+    printf("A Equação de Segundo Grau informada é %.fx^2 + %.fx + %.f = 0\n", a, b, c);
+    
+    // verifica se tem solução -> a nao pode ser = 0 
+    
+    if (a == 0 ) {
+        printf("Equação sem solução, pois a não pode ser igual a zero.");
+    }
+    
+    // passo a passo da resolucao:
+        // 1- calcular o delta (triangulo) com a formula Δ = b^2 (ou b*b) - 4*a*c
+        // 2- analisar o valor do delta e entao suas condicoes:
+            // se delta = 0 -> uma raiz real / dupla 
+            // se delta > 0 -> duas raizes reais distintas
+            // se delta < 0 -> sem solucao
+            // Calcular as raízes reais quando Δ >= 0:
+            //   x1 = (-b + sqrt(Δ)) / (2*a)
+            //   x2 = (-b - sqrt(Δ)) / (2*a)
+            
+            
+            
+    
+    // 1- calcular delta = Δ = b^2 (ou b*b) - 4*a*c
+    delta = b*b - 4*a*c;
+    printf("Δ = %.2f^2 - 4 * %.2f * %.2f\n", b, a, c);
+    printf("Δ = %.2f\n", delta);
+    
+    
+    // 2- analisar o valor de delta e suas condicoes
+    if (delta < 0) {
+        printf("\n2) Como Delta é < 0, a equacao nao possui raizes reais, ou seja, é sem solucao.\n");
+    } else if (delta == 0) {
+        printf("\n2) Como Delta é = 0, a equacao possui uma unica raiz real.\n");
+        printf("   Formula: x = -b / (2*a)\n");
+        printf("   Calculo: x = -%.2f / (2 * %.2f)\n", b, a);
+        x1 = -b / (2 * a);
+        printf("   Solucao: x = %.2f\n", x1);
+        
+    } else { // delta > 0
+        printf("\n2) Como Delta > 0, a equacao possui duas raizes reais distintas.\n");
+        printf("   A formula é: x = (-b +/- raizquadrada(Delta)) / 2a\n");
+        printf("   Calculando a raiz quadrada de Delta: sqrt(%.2f) = %.2f\n", delta, sqrt(delta)); // sqrt é square root, significa raiz quadrada
+        printf("   Calculando o denominador: 2*a = 2 * %.2f = %.2f\n", a, 2 * a);
+        
+        
+        
+        // calcula x1 e x2. 
+        // x1 = -b raizdelta / 2 * a
+        // x2 = -b raizdelta / 2 * a
+        printf("3) Calculo de x1:\n");
+        x1 = (-b + sqrt(delta)) / (2 * a);
+        printf("   x1 = (-%.2f + %.2f) / %.2f = %.2f\n", b, sqrt(delta), 2 * a, x1);
+
+        printf("4) Calculo de x2:\n");
+        x2 = (-b - sqrt(delta)) / (2 * a);
+        printf("   x2 = (-%.2f - %.2f) / %.2f = %.2f\n", b, sqrt(delta), 2 * a, x2);
+        
+        printf("\nSolucoes reais: x1 = %.2f e x2 = %.2f\n", x1, x2);
+    }
 }
+
+
 
 
 
@@ -90,7 +160,7 @@ int main()
 	setlocale(LC_ALL, "Portuguese");
 
 	int opcao; //variavel que armazenara a opcao do user
-	char continuar;
+    char continuar;
 	do {
 		printf("*-=-=- MENU INICIAL -=-=-*\n");
 		printf("Bem vindo a Calculadora de Equacoes!\nEscolha uma opcao abaixo de acordo com a equacaoo desejada:\n");
@@ -102,9 +172,11 @@ int main()
 
 		switch (opcao) { // menu de alternativas
 		case 1: // resolve uma equacao de primeiro grau
+		    printf("Equação de Primeiro Grau selecionada!\n\n");
 			eqPrimeiroGrau();
 			break;
 		case 2: // resolve uma equacao de segundo grau
+		    printf("Equação de Segundo Grau selecionada!\n\n");
 			eqSegundoGrau();
 			break;
 		case 3: // apresenta o nome do aluno
@@ -117,9 +189,9 @@ int main()
 			printf("Opcao Invalida. Tente novamente!");
 		}
 		if (opcao != 0) {
-			printf("\nDeseja continuar no programa? (s/n): ");
-			scanf(" %c", &continuar); // O espaco antes de %c e importante para ignorar o 'Enter'
-		}
+            printf("\nDeseja continuar no programa? (s/n): ");
+            scanf(" %c", &continuar); // O espaco antes de %c e importante para ignorar o 'Enter'
+        }
 	} while (continuar == 's' || continuar == 'S');
 
 	return 0;
