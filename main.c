@@ -43,7 +43,7 @@ void eqPrimeiroGrau() {
 	printf("Digite o valor de b: \n");
 	scanf("%f", &b);                 // armazena o valor de b na variavel b
 
-	printf("A Equacao de 1o Grau montada é: %.2f x + %.2f = 0 \n", a, b); // mostra a conta montada pelo user
+	printf("A Equacao de Primeiro Grau montada é: %.2fx + %.2f = 0 \n", a, b); // mostra a conta montada pelo user
 
 	// primeiro passo da conta = verificar se o problema tem solucao.
 	// como? se a = 0 e b = 0, temos solucoes INFINITAS, pois qualquer numero de x serve para a equaC'C#o
@@ -181,9 +181,6 @@ int main()
 			break;
 		case 3: // apresenta o nome do aluno
 			sobrePrograma();
-			break;
-		case 0: // sai do programa
-			printf("Encerrando o programa...");
 			break;
 		default: // diz que a opcao enviada pelo usuario nao atende C s opcoes disponiveis
 			printf("Opcao Invalida. Tente novamente!");
